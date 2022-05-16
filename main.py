@@ -1,11 +1,11 @@
 
 import time, random, requests
-from modules.proxy1 import Proxy1
-from modules.proxy2 import Proxy2
-from modules.proxy3 import Proxy3
+from scripts.proxy1 import Proxy1
+from scripts.proxy2 import Proxy2
+from scripts.proxy3 import Proxy3
 from selenium import webdriver
-from modules.geolocation import Geolocation
-from modules.user_agents import UserAgents
+from scripts.geolocation import Geolocation
+from scripts.user_agents import UserAgents
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
@@ -56,7 +56,7 @@ if __name__ == "__main__":
 
     PROXY, country = check_proxy()
     if not PROXY:
-        print("\nNo working proxy found") # need to increase proxy collection numbers.
+        print("\nNo working proxy found")
         quit()
         
     print('\n[+] Proxy of choice: ' + str(PROXY))
@@ -103,5 +103,7 @@ if __name__ == "__main__":
     open_url(chromedriver, url)
     time.sleep(5)
     #### Add your own code here.
+
+    input('waiting...')
     chromedriver.delete_all_cookies()
     chromedriver.quit()
